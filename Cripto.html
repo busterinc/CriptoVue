@@ -11,17 +11,8 @@
 <body>
     <div id="app" v-bind:style="{ background: '#' + color}">      
         <img v-on:mouseover="toggleShowPrices" v-on:mouseout="toggleShowPrices" v-bind:src="img" v-bind:alt="name"> 
-        <h1 v-bind:class="changePercent > 0 ? 'green' : 'red'">
-            <!--{{ name }} - {{ symbol }}-->
-            {{ title }}
-            <span v-if="changePercent > 0">👍</span>
-            <span v-if="changePercent < 0">👎</span>
-            <span v-else>🤞</span>
-
-            <span v-on:click="toggleShowPrices">
-                {{ showPrices ? '🙈' : '🙉' }}
-            </span>
-        </h1>        
+        
+        <coin-detail title="title" changePercent="changePercent"></coin-detail>
         
         <input type="number" v-model="value">
         <span>{{ convertedValue }}</span>
