@@ -9,23 +9,9 @@
     <link rel="stylesheet" href="./Cripto_files/styles.css">
 </head>
 <body>
-    <div id="app" v-bind:style="{ background: '#' + color}">      
-        <img v-on:mouseover="toggleShowPrices" v-on:mouseout="toggleShowPrices" v-bind:src="img" v-bind:alt="name"> 
-        
-        <coin-detail title="title" changePercent="changePercent"></coin-detail>
-        
-        <input type="number" v-model="value">
-        <span>{{ convertedValue }}</span>
-
-        <ul v-show=showPrices>
-            <li 
-                class="uppercase"
-                v-bind:class="{ orange: p.value === price, red: p.value < price, green: p.value > price }" 
-                v-for="(p, i) in pricesWhithDays" 
-                v-bind:key="p.day">
-                {{ i }} - {{ p.day }} - {{ p.value }}
-            </li>
-        </ul>       
+    <div id="app" v-bind:style="{ background: '#' + color}">        
+        <coin-detail v-on:change-color="updateColor" v-bind:coin="btc">        
+        </coin-detail>       
     </div>    
 </body>
 </html>
